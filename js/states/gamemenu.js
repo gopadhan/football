@@ -26,8 +26,9 @@ preload: function(){
   game.load.image("thankyou", "assets/images/thankyou.png"); 
 
   
-  game.load.spritesheet("musiconoff", "assets/images/musiconoff.png", 33,33);
-  game.load.spritesheet("soundonoff", "assets/images/soundonoff.png", 33,33);
+  //game.load.spritesheet("musiconoff", "assets/images/musiconoff.png", 33,33);
+  game.load.spritesheet("musiconoff", "assets/images/musiconoff.png", 100, 100);
+  game.load.spritesheet("soundonoff", "assets/images/soundonoff.png", 100, 100);
   
   game.scale.setScreenSize = true;
   game.scale.pageAlignHorizontally = true;
@@ -47,10 +48,14 @@ preload: function(){
         
     musicButton = game.add.button(game.width - 30, 30, "musiconoff" , MusicOnOffClick); 
     musicButton.anchor.set(0.5);
-    musicButton.frame = playMusic ? 1 : 0;
-    SoundButton = game.add.button(game.width - 30, 80, "soundonoff" , SoundOnOffClick);
+    musicButton.scale.set(0.33);
+    //playMusic = !playMusic;
+    musicButton.frame = playMusic ? 0 : 1;
+    SoundButton = game.add.button(game.width - 30, 75, "soundonoff" , SoundOnOffClick);
     SoundButton.anchor.set(0.5); 
-    SoundButton.frame = playSound ? 1 : 0;       
+    SoundButton.scale.set(0.33);
+    //playSound = !playSound;
+    SoundButton.frame = playSound ? 0 : 1;       
   
     menuGroup = game.add.group();
     var menuButton = game.add.button(20, game.height / 2, "menubutton", toggleMenu);
@@ -97,7 +102,7 @@ function toggleMenu(){
 
 function MusicOnOffClick(){  
   playMusic = !playMusic;
-  musicButton.frame = playMusic ? 1 : 0;
+  musicButton.frame = playMusic ? 0 : 1;
   if (playMusic == false) {
     music.stop();
   }
@@ -108,7 +113,7 @@ function MusicOnOffClick(){
 
 function SoundOnOffClick(){
   playSound = !playSound;
-  SoundButton.frame = playSound ? 1 : 0;
+  SoundButton.frame = playSound ? 0 : 1;
   if (playSound == false) {
     music.stop();
   }

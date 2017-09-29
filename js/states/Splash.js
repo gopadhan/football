@@ -11,6 +11,7 @@ Splash.prototype = {
   loadScripts: function () {
     game.load.script('gamemenu','js/states/GameMenu.js');
     game.load.script('gamestart', 'js/states/gamestart.js');
+    game.load.script('common', 'js/lib/common.js');
     //game.load.script('gameover','js/states/GameOver.js');
     //game.load.script('options', 'js/states/Options.js');
   },
