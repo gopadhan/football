@@ -737,7 +737,7 @@ module.exports={
     "url": "https://github.com/schteppe/p2.js.git"
   },
   "bugs": {
-    "url": "https://github.com/schteppe/p2.js/issues"
+    "url": "https://github.com/schteppe/p2.gamejs/issues"
   },
   "licenses": [
     {
@@ -56249,7 +56249,7 @@ Phaser.Text.prototype.setStyle = function (style, update) {
     newStyle.align = (style.align || 'left').toLowerCase();
     newStyle.boundsAlignH = (style.boundsAlignH || 'left').toLowerCase();
     newStyle.boundsAlignV = (style.boundsAlignV || 'top').toLowerCase();
-    newStyle.stroke = style.stroke || 'black'; //provide a default, see: https://github.com/GoodBoyDigital/pixi.js/issues/136
+    newStyle.stroke = style.stroke || 'black'; //provide a default, see: https://github.com/GoodBoyDigital/pixi.gamejs/issues/136
     newStyle.strokeThickness = Number(style.strokeThickness) || 0;
     newStyle.wordWrap = style.wordWrap || false;
     newStyle.wordWrapWidth = style.wordWrapWidth || 100;
@@ -64959,7 +64959,7 @@ Phaser.RandomDataGenerator.prototype.constructor = Phaser.RandomDataGenerator;
 /**
 * A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
 * However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
-* Original version at https://github.com/timohausmann/quadtree-js/
+* Original version at https://github.com/timohausmann/quadtree-gamejs/
 *
 * @class Phaser.QuadTree
 * @constructor
@@ -65276,7 +65276,7 @@ Phaser.QuadTree.prototype.constructor = Phaser.QuadTree;
 * it massively to add node indexing, removed lots of temp. var creation and significantly
 * increased performance as a result.
 *
-* Original version at https://github.com/timohausmann/quadtree-js/
+* Original version at https://github.com/timohausmann/quadtree-gamejs/
 */
 
 /**
@@ -74721,10 +74721,10 @@ Phaser.Loader.prototype = {
     *
     * ```
     * load.image('factory', {
-    *     etc1: 'assets/factory_etc1.pkm',
-    *     s3tc: 'assets/factory_dxt1.pvr',
-    *     pvrtc: 'assets/factory_pvrtc.pvr',
-    *     truecolor: 'assets/factory.png'
+    *     etc1: 'gameassets/factory_etc1.pkm',
+    *     s3tc: 'gameassets/factory_dxt1.pvr',
+    *     pvrtc: 'gameassets/factory_pvrtc.pvr',
+    *     truecolor: 'gameassets/factory.png'
     * });
     * ```
     *
@@ -74781,10 +74781,10 @@ Phaser.Loader.prototype = {
     *
     * ```
     * load.texture('factory', {
-    *     etc1: 'assets/factory_etc1.pkm',
-    *     s3tc: 'assets/factory_dxt1.pvr',
-    *     pvrtc: 'assets/factory_pvrtc.pvr',
-    *     truecolor: 'assets/factory.png'
+    *     etc1: 'gameassets/factory_etc1.pkm',
+    *     s3tc: 'gameassets/factory_dxt1.pvr',
+    *     pvrtc: 'gameassets/factory_pvrtc.pvr',
+    *     truecolor: 'gameassets/factory.png'
     * });
     * ```
     *

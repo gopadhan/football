@@ -4,43 +4,42 @@
 //types of media.
 
 
-var Splash = function () {};
+var splash = function () {};
 
-Splash.prototype = {
+splash.prototype = {
 
   loadScripts: function () {
-    game.load.script('gamemenu','js/states/GameMenu.js');
-    game.load.script('gamestart', 'js/states/gamestart.js');
-    game.load.script('common', 'js/lib/common.js');
-    //game.load.script('gameover','js/states/GameOver.js');
-    //game.load.script('options', 'js/states/Options.js');
+    game.load.script('gameMenu','gamejs/states/gamemenu.js');
+    game.load.script('gameStart', 'gamejs/states/gamestart.js');
+    game.load.script('common', 'gamejs/lib/common.js');
+    //game.load.script('gameover','gamejs/states/GameOver.js');
+    //game.load.script('options', 'gamejs/states/Options.js');
   },
 
   loadBgm: function () {
-    game.load.audio('dangerous', 'assets/bgm/Dangerous.mp3');
+    game.load.audio('dangerous', 'gameassets/bgm/Dangerous.mp3');
   },
 
   
   loadImages: function () {
-    //game.load.image('menu-bg', 'assets/images/menu-bg.png');
-  
-     
+    //game.load.image('menu-bg', 'gameassets/images/menu-bg.png');
   
   },
 
 
   init: function () {
-    this.loadingBar = game.make.sprite(game.world.centerX-(387/2), 400, "loading");
+    this.loadingBar = game.make.sprite(game.world.centerX-(387/2), 400, 'loading');
     this.logo       = game.make.sprite(game.world.centerX, 200, 'brand');
     this.status     = game.make.text(game.world.centerX, 380, 'Loading...', {fill: 'white'});
-    //utils.centerGameObjects([this.logo, this.status]);
+    //game.world.setBounds(0,0,800,600);
   },
 
   preload: function () {
-    game.scale.setScreenSize = true;
-    game.scale.pageAlignHorizontally = true;
-    game.scale.pageAlignVertically = true;
-    game.stage.backgroundColor = "#020028";    
+    //game.scale.setScreenSize = true;
+    //game.scale.pageAlignHorizontally = true;
+    //game.scale.pageAlignVertically = true;
+
+    game.stage.backgroundColor = '#020028';    
     //game.add.sprite(0, 0, 'stars');
     game.add.existing(this.logo).scale.setTo(0.5);
     game.add.existing(this.logo).anchor.set(0.5);
@@ -58,10 +57,10 @@ Splash.prototype = {
 
   addGameStates: function () {
 
-    game.state.add("GameMenu",GameMenu);
-    game.state.add("GameStart",GameStart);
-    //game.state.add("GameOver",GameOver);
-    //game.state.add("Options",Options);
+    game.state.add('gameMenu',gameMenu);
+    game.state.add('gameStart',gameStart);
+    //game.state.add('GameOver',GameOver);
+    //game.state.add('Options',Options);
   },
 
   addGameMusic: function () {
@@ -72,11 +71,12 @@ Splash.prototype = {
 
   create: function() {
     this.status.setText('Ready!');
-    //console.log("starting......");
+    //console.log('starting......');
     this.addGameStates();
     this.addGameMusic();
 
-    setTimeout(function () {game.state.start("GameMenu");}, 1000);
+    setTimeout(function () {game.state.start('gameMenu');}, 1000);
 
   }
 };
+

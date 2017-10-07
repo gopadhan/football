@@ -16,9 +16,11 @@ var gameOptions = {
 //4h parameter is id of the DOM element in which you would like to insert the canvas element that Phaser creates.
 
 
-window.onload = function() {	      
-	game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.AUTO, 'game');
-							
+window.onload = function() {	   
+  var screenDims = Utils.ScreenUtils.calculateScreenMetrics(GAME_WIDTH, GAME_HEIGHT, 1 /* LANDSCAPE */);
+     
+  game = new Phaser.Game(screenDims.gameWidth, screenDims.gameHeight, Phaser.AUTO, 'game');
+    
     game.state.add("Main", main);
     //Start the first state          
     game.state.start("Main");
@@ -34,20 +36,20 @@ main.prototype = {
     //Phaser automatically look preload function when it starts and load anything defined within it.
     //we're going to load everything we need to show our cool splash screen, then we'll use the state system to switch to our awesome splash screen once it is ready.
     preload: function () {
-      game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-      game.scale.setScreenSize = true;
-      game.scale.pageAlignHorizontally = true;
-      game.scale.pageAlignVertically = true;
-      game.stage.backgroundColor = "#020028";
-      game.load.script('splash',  'js/states/Splash.js');
-      game.load.image('loading',  'assets/images/loading.png');
-	    game.load.image('brand',    'assets/images/logo.png');
+      //game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+      //game.scale.setScreenSize = true;
+      //game.scale.pageAlignHorizontally = true;
+      //game.scale.pageAlignVertically = true;
+      //game.stage.backgroundColor = "#020028";
+      game.load.script('splash',  'gamejs/states/splash.js');
+      game.load.image('loading',  'gameassets/images/loading.png');
+	    game.load.image('brand',    'gameassets/images/logo.png');
       
     },
 
     create: function () {
-      game.state.add('Splash', Splash);
-      game.state.start('Splash');
+      game.state.add('splash', splash);
+      game.state.start('splash');
     }  
 }
 
